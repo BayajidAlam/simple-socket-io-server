@@ -13,9 +13,19 @@ io.on("connection", (socket)=>{
     console.log("User disconnect")
   })
 
-  socket.on("testEvent", (data)=>{
-    console.log(data)
+  // name spacific 
+  let fifa = io.of("/worldCup");
+
+  fifa.on('connection', (socket)=>{
+    fifa.emit("worldCupEvent", "Hello fifa i am bayajid Alam")
   })
+
+  // socket.on("testEvent", (data)=>{
+  //   console.log(data)
+  // })
+
+  // broadCasting 
+  // io.sockets.emit("fifaWorldCup","hello football")
 })
 
 // home response 
