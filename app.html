@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IO</title>
+</head>
+<body>
+        <h1>This is Bayajid Alam Socket io profile</h1>
+
+        <input type="name" id="name">
+        <input type="phone" id="phone">
+        <button onclick="handleSend()">Send</button>
+
+        <!-- scripts  -->
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            const socket = io()
+            // socket.send('Hello')
+
+            const handleSend = () => {
+              const name = document.getElementById('name').value
+              const phone = document.getElementById('phone').value
+              
+              socket.emit('testEvent', {name,phone})
+            }
+        </script>
+</body>
+</html>
